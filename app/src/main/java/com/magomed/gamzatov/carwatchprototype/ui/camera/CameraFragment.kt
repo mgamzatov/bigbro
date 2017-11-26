@@ -87,8 +87,8 @@ class CameraFragment : Fragment(), Injectable {
         val bg = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bg)
         val paintBlur = Paint(Paint.ANTI_ALIAS_FLAG)
-        paintBlur.color = Color.BLACK
-        paintBlur.maskFilter = BlurMaskFilter(180F, BlurMaskFilter.Blur.INNER)
+        paintBlur.color = Color.TRANSPARENT
+        //paintBlur.maskFilter = BlurMaskFilter(180F, BlurMaskFilter.Blur.INNER)
 
         if(activity != null) {
             canvas.drawRect(Rect(0, 500, width, height-500), paintBlur)
@@ -119,9 +119,9 @@ class CameraFragment : Fragment(), Injectable {
         paint.color = Color.RED
         paint.isAntiAlias = true
 
-        val paintBlur = Paint(Paint.ANTI_ALIAS_FLAG)
-        paintBlur.color = Color.BLACK
-        paintBlur.maskFilter = BlurMaskFilter(80F, BlurMaskFilter.Blur.INNER)
+        //val paintBlur = Paint(Paint.ANTI_ALIAS_FLAG)
+        //paintBlur.color = Color.BLACK
+        //paintBlur.maskFilter = BlurMaskFilter(80F, BlurMaskFilter.Blur.INNER)
 
         val left = (width /2) - (imageWidth/2)
         val top = height/2 - (imageHeight/2)
@@ -135,7 +135,7 @@ class CameraFragment : Fragment(), Injectable {
             val carRect = Rect((left + it.left * multiplier).toInt(), (top + it.top * multiplier).toInt(),
                     (left + it.right * multiplier).toInt(), (top + it.bottom * multiplier).toInt())
             carRects.put(carRect, it)
-            canvas.drawRect(carRect, paintBlur)
+            //canvas.drawRect(carRect, paintBlur)
             canvas.drawRect(carRect, paint)
         }
 

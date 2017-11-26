@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:stream="http://schemas.android.com/apk/res-auto"
+    tools:context="com.magomed.gamzatov.carwatchprototype.ui.camera.CameraFragment"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/cameraToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"/>
+
+    <RelativeLayout
+        android:id="@+id/cameraContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.niqdev.mjpeg.MjpegSurfaceView
+            android:id="@+id/mjpegView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            stream:type="stream_default"
+            />
+    </RelativeLayout>
+</LinearLayout>

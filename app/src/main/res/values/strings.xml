@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CarWatchPrototype</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_custom">Custom</string>
+    <string name="url">URL</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="connect">Connect</string>
+    <string name="mapBoxApiKey">pk.eyJ1IjoiZXBpY3dpbiIsImEiOiJjajU3M2J5MG0xOGZ3MzNzM2QwMjdoaHlxIn0.LwyKlrj0CND-h7PwPCz2Mw</string>
+    <string name="title_map">Map</string>
+</resources>

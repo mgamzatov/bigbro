@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/navigation_map"
+        android:icon="@mipmap/map"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:title="@string/title_map" />
+    <item
+        android:id="@+id/navigation_camera"
+        android:icon="@mipmap/ic_videocam_white"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:title="@string/title_camera" />
+</menu>

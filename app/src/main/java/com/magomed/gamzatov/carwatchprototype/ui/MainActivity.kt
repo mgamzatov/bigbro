@@ -18,6 +18,7 @@ import android.view.View
 import com.magomed.gamzatov.carwatchprototype.App
 import com.magomed.gamzatov.carwatchprototype.R
 import com.magomed.gamzatov.carwatchprototype.services.net.models.Camera
+import com.magomed.gamzatov.carwatchprototype.services.net.models.Status
 import com.magomed.gamzatov.carwatchprototype.services.net.models.UserMonitoring
 import com.magomed.gamzatov.carwatchprototype.ui.camera.CameraFragment
 import com.magomed.gamzatov.carwatchprototype.ui.cameraList.CameraListFragment
@@ -96,6 +97,19 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
                         }
                         override fun onFailure(call: Call<List<UserMonitoring>>, t: Throwable) {
                             Log.e("getMonitorings error", t.message)
+                        }
+                    })
+                    App.api.notifications().enqueue(object : Callback<Status> {
+                        override fun onResponse(call: Call<Status>, response: Response<Status>) {
+                            val status = response.body()
+                            Log.d("notifications", status?.toString()?:"null")
+                            if(status?.status != null) {
+                                sendTextNotification(status.status)
+                            }
+                        }
+
+                        override fun onFailure(call: Call<Status>, t: Throwable) {
+                            Log.e("notifications error", t.message)
                         }
                     })
                 }
@@ -181,5 +195,19 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         val mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         mNotificationManager.notify(id, mBuilder.build())
+    }
+
+    private fun sendTextNotification(text: String) {
+
+        val mBuilder = NotificationCompat.Builder(this)
+
+        //Create the intent that’ll fire when the user taps the notification//
+        mBuilder.setSmallIcon(R.mipmap.ic_videocam_white)
+        mBuilder.setContentTitle("Caution")
+        mBuilder.setContentText(text)
+        mBuilder.priority = Notification.PRIORITY_MAX
+
+        val mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        mNotificationManager.notify(1, mBuilder.build())
     }
 }

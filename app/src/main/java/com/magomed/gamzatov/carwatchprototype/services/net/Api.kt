@@ -1,9 +1,6 @@
 package com.magomed.gamzatov.carwatchprototype.services.net
 
-import com.magomed.gamzatov.carwatchprototype.services.net.models.Camera
-import com.magomed.gamzatov.carwatchprototype.services.net.models.Car
-import com.magomed.gamzatov.carwatchprototype.services.net.models.Monitoring
-import com.magomed.gamzatov.carwatchprototype.services.net.models.UserMonitoring
+import com.magomed.gamzatov.carwatchprototype.services.net.models.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -26,4 +23,7 @@ interface Api {
 
     @GET("/monitorings/{id}/disable")
     fun disableMonitoring(@Path("id") id: Long): Call<Void>
+
+    @GET("/notifications")
+    fun notifications(): Call<Status>
 }
